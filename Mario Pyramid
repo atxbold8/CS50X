@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void){
+    int height;
+    int spaces;
+    int dashes;
+
+    do
+    {
+        height = get_int("Height: ");
+    }
+    while (height <= 0 || height >= 23);
+    //loop for the rows
+    for (int i = 0; i < height; i++){
+        //loop for the spaces and dashes per row
+        for (spaces = (height - i); spaces >= 0; spaces--){
+            printf(" ");
+        }
+        for (dashes = 1; dashes <= (i + 1); dashes++){
+            printf("#");
+        }
+
+        printf("  ");
+
+        for (dashes = 1; dashes <= (i + 1); dashes++){
+            printf("#");
+        }
+        for (spaces = (height - i); spaces >= 0; spaces--){
+            printf(" ");
+        }
+
+        printf("\n");
+    }
+    return 0;
+}
+
